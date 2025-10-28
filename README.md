@@ -33,6 +33,14 @@ code --install-extension usernamehw.errorlens
 --------- > SELECT INTERPRETADOR
 
 -- pip install pylint
+---- pylint --generate-rcfile > .pylintrc
+
+extensão vscode Pylint
 
 criar requirements.txt
 --- venv/bin/pip3 freeze > requirements.txt
+
+### vali rodar o lint antes de commitar 
+-- pip3 install pre-commit
+---- pre-commit --version
+----- pre-commit install 

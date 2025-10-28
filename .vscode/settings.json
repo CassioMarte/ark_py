@@ -1,0 +1,4 @@
+{
+  "pylint.enabled": true,
+  "pylint.lintOnChange": true
+}
