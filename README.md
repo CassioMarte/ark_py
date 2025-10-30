@@ -69,3 +69,7 @@ criar requirements.txt
 
 ### repositories
   - ações no banco
+
+### tests https://docs.pytest.org/en/stable/getting-started.html
+
+ - pip3 install -U pytest

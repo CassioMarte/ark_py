@@ -12,6 +12,8 @@ class DBConnectionHandler:
     def get_engine(self):
         return self.__engine
 
+db_connection_handler = DBConnectionHandler()
+
 ## ex com postgris
 # class DBConnectionSettings:
 #     def __init__(self, host: str, port: int, username: str, password: str, database: str):
