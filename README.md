@@ -35,6 +35,9 @@ extensão vscode Pylint
 criar requirements.txt
 --- venv/bin/pip3 freeze > requirements.txt
 
+--- pip3 install -r requirements.txt
+
+
 ### vali rodar o lint antes de commitar
 
 -- pip3 install pre-commit
@@ -54,3 +57,15 @@ criar requirements.txt
 ### orm
 
 -- pip install SQLAlchemy
+
+
+## model (conexão e comunicação com banco )
+
+### settings
+  - conexão com banco de dados neste caso como estamos com sqlalchemy por uma string
+
+### entities
+  - entidades que espelham o banco de dados 
+
+### repositories
+  - ações no banco
