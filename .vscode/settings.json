@@ -1,4 +1,6 @@
 {
   "pylint.enabled": true,
-  "pylint.lintOnChange": true
+  "pylint.lintOnChange": true,
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.pythonProjects": []
 }
