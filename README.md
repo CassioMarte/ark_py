@@ -73,3 +73,31 @@ criar requirements.txt
 ### tests https://docs.pytest.org/en/stable/getting-started.html
 
  - pip3 install -U pytest
+
+
+## with
+
+````
+class AlgumaCoisa:
+    def __enter__(self):
+        print("Estou entrando")
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Estou saindo")
+
+
+with AlgumaCoisa as O_que_vai_no_meio:
+    print("meio")
+
+exc_type: O tipo exceção que ocorreu, se houver.
+    Se não ocorreu nenhuma exceção, este parâmetro será None
+
+exc_val: O valor da exceção que ocorreu, se houver.
+    Se não ocorreu nenhuma exceção, este parâmetro será None
+
+exc_tb: O traceback (rastreamento de pilha) associado à exceção que ocorreu,
+se houver.
+    Se não ocorreu nenhuma exceção, este parâmetro será None
+
+````
+
