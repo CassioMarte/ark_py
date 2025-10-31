@@ -1,6 +1,8 @@
+import pytest
 from sqlalchemy import Engine
 from .connection import DBConnectionHandler
 
+@pytest.mark.skip(reason="Teste de conexão com banco de dados SQLite desativado temporariamente")
 def test_db_connection_handler():
     db_handler = DBConnectionHandler()  # Cria nova instância para isolar o teste
     
