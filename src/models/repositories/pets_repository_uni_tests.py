@@ -62,3 +62,11 @@ def test_ini_delet_pets():
 
     db_connection_mock.session.delete.assert_called_once()
 
+
+
+## só para fim de estudo vou colocar class de erro aqui 
+
+class MockConnectionNoResult:
+    def __init__(self)-> None:
+        self.session = UnifiedAlchemyMagicMock()
+        self.session.query.side_effect = self.__raise_no_result_
