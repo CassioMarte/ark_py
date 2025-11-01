@@ -33,7 +33,7 @@ code --install-extension usernamehw.errorlens
 extensão vscode Pylint
 
 criar requirements.txt
---- venv/bin/pip3 freeze > requirements.txt
+
 
 --- pip3 install -r requirements.txt
 
@@ -101,3 +101,33 @@ se houver.
 
 ````
 
+## criar mock para teste uni 
+
+-- pip install mock-alchemy
+
+basico: criamos basicamente um teste com dados staticos ou immemory
+
+primeiro criamos uma representação da connection
+
+````
+class MockConnection:
+    def __init__(self)->None:
+-->session  self.session = UnifiedAlchemyMagicMock( -> 
+            data=[
+                (
+--> query que espero [mock.call.query(PetsTable)], #query
+                    [
+-> result              PetsTable(name="dog", type="dog"),
+                        PetsTable(name="cat", type="cat"),
+                    ],  # resultado
+                )
+            ]
+        )
+
+    def __enter__(self): -> enter 
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb): -> exit
+        pass
+
+````
