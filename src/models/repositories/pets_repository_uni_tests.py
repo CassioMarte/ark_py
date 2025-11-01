@@ -1,6 +1,7 @@
 from unittest import mock
 from typing import cast
 from mock_alchemy.mocking import UnifiedAlchemyMagicMock
+from sqlalchemy.exc import NoResultFound
 from src.models.entities.pets_table import PetsTable
 from .pets_repositories import PetRepositories
 from src.models.settings.sqlite.connection import DBConnectionHandler
@@ -69,4 +70,11 @@ def test_ini_delet_pets():
 class MockConnectionNoResult:
     def __init__(self)-> None:
         self.session = UnifiedAlchemyMagicMock()
-        self.session.query.side_effect = self.__raise_no_result_
+        self.session.query.side_effect = self.__raise_no_result_found
+
+    def __raise_no_result_found(self, *args, **kwargs):
+        raise NoResultFound("No result found")
+    
+    def __enter__(self): return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb): pass
