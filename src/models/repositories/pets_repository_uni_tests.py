@@ -38,6 +38,27 @@ def test_uni_list_pets():
 
     response = repo.list_pets()
 
+    # verificar se PetsTable foi chamado uma vez
+    db_connection_mock.session.query.assert_called_once_with(PetsTable)
+
+    # ver se all foi chamado  pets = database.session.query(PetsTable).all
+    db_connection_mock.session.all.assert_called_once()
+
+    # ver se não foi chamado o filter assert_not_called assert não ligou
+    db_connection_mock.session.filter.assert_not_called()
+
     assert response[0].name == "dog_mock"
 
+def test_ini_delet_pets():
+    db_connection_mock = MockConnection()
+
+    repo = PetRepositories(cast(DBConnectionHandler, db_connection_mock))
+
+    repo.delete_pet("petName")
+
+    db_connection_mock.session.query.assert_called_once_with(PetsTable)
+
+    db_connection_mock.session.filter.assert_called_once_with( PetsTable.name == "petName")
+
+    db_connection_mock.session.delete.assert_called_once()
 
