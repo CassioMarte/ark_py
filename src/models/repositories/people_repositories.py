@@ -1,6 +1,7 @@
 from sqlalchemy.exc import NoResultFound
 from src.models.settings.sqlite.connection import DBConnectionHandler
 from src.models.entities.people_table import PeopleTable
+from src.models.entities.pets_table import PetsTable
 from .interfaces.people_repository_interface import PeopleRepositoryInterface
 
 class PeopleRepository(PeopleRepositoryInterface):
@@ -43,3 +44,26 @@ class PeopleRepository(PeopleRepositoryInterface):
             except Exception as exception:
                 database.session.rollback()
                 raise exception
+    
+        ##join 
+    def get_person_and_pet(self, people_uuid:str):
+        with self.__db_connection as database:
+            try:
+                person = (
+                    database.session
+                        .query(PeopleTable)
+                        .outerjoin(PetsTable, PetsTable.uuid == PeopleTable.pet_uuid)
+                        .filter(PeopleTable.uuid == people_uuid)
+                        .with_entities(
+                            PeopleTable.first_name,
+                            PeopleTable.last_name,
+                            PetsTable.name.label("pet_name"),
+                            PetsTable.type.label("pet_type")
+                        )
+                        .one()
+                )
+                
+                return person
+            
+            except NoResultFound:
+                return None
