@@ -8,6 +8,7 @@ disable=
      W0703,  # broad-except
      E0015,  # bad-option-value
      C0303,  #trailing-whitespace
+     W0719,  #broad-exception-raised
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
