@@ -7,7 +7,7 @@ class PetsRepositoriesInterface(ABC): # pylint: disable=too-few-public-methods
         pass
 
     @abstractmethod
-    def delete_pet(self, name:str)-> None:
+    def delete_pet(self, uuid:str)-> None:
         pass
 
 

@@ -32,6 +32,8 @@ code --install-extension usernamehw.errorlens
 
 extensão vscode Pylint
 
+criar requirements.txt --- venv/bin/pip3 freeze > requirements.txt
+
 criar requirements.txt
 
 
@@ -56,7 +58,7 @@ criar requirements.txt
 
 ### orm
 
--- pip install SQLAlchemy
+-- pip3 install SQLAlchemy
 
 
 ## model (conexão e comunicação com banco )
@@ -131,3 +133,6 @@ class MockConnection:
         pass
 
 ````
+
+
+## pip3 install pytest-mock

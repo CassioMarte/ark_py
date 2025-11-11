@@ -55,11 +55,11 @@ def test_ini_delet_pets():
 
     repo = PetRepositories(cast(DBConnectionHandler, db_connection_mock))
 
-    repo.delete_pet("petName")
+    repo.delete_pet("uuid-string")
 
     db_connection_mock.session.query.assert_called_once_with(PetsTable)
 
-    db_connection_mock.session.filter.assert_called_once_with( PetsTable.name == "petName")
+    db_connection_mock.session.filter.assert_called_once_with( PetsTable.uuid == "uuid-string")
 
     db_connection_mock.session.delete.assert_called_once()
 

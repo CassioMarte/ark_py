@@ -15,13 +15,13 @@ class PetRepositories(PetsRepositoriesInterface):   # pylint: disable=too-few-pu
             except NoResultFound:
                 return []
             
-    def delete_pet(self, name:str)-> None:
+    def delete_pet(self, uuid:str)-> None:
         with self.__db_connection as database:
             try:
                 (
                     database.session
                     .query(PetsTable)
-                    .filter(PetsTable.name == name)
+                    .filter(PetsTable.uuid == uuid)
                     .delete()
                 )
                 database.session.commit()
