@@ -1,7 +1,10 @@
 import re
 from src.models.repositories.interfaces.people_repository_interface import PeopleRepositoryInterface
 from src.utils.format_return import format_return
-class CreatePeopleController: 
+from src.controllers.interfaces.create_people_controller_interface import CreatePeopleControllerInterface
+
+
+class CreatePeopleController(CreatePeopleControllerInterface): 
     def __init__(self, people_repository:PeopleRepositoryInterface)->None:
         self.__people_repository = people_repository
     

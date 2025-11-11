@@ -1,6 +1,7 @@
 from src.models.repositories.interfaces.pets_repositories_interface import PetsRepositoriesInterface
+from src.controllers.interfaces.pets_delet_controller_interface import PetDeletControllerInterface
 
-class PetDeletController:
+class PetDeletController(PetDeletControllerInterface):
     def __init__(self, pet_repository:PetsRepositoriesInterface):
         self.__pet_repository = pet_repository
 

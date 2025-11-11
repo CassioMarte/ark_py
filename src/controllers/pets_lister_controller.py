@@ -1,8 +1,10 @@
 from src.models.repositories.interfaces.pets_repositories_interface import PetsRepositoriesInterface
 from src.models.entities.pets_table import PetsTable
 from src.utils.format_return import format_return
+from src.controllers.interfaces.pets_lister_controller_interface import PetListerControllerInterface
 
-class PetListerController:
+
+class PetListerController(PetListerControllerInterface):
     def __init__(self, pets_repository:PetsRepositoriesInterface):
         self.__pets_repository = pets_repository
     
