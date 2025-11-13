@@ -8,7 +8,7 @@ class PetsDeleteView(ViewInterface):
         self.__pets_delete_controller = pets_delete_controller
 
     def handle(self, http_request: HttpRequest) -> HttpResponse:
-        pet_uuid = http_request.param
+        pet_uuid = http_request.param["pet_uuid"]
         self.__pets_delete_controller.delet_pet(pet_uuid)
 
         return HttpResponse(status_code=204)

@@ -8,7 +8,7 @@ class FindPeopleView(ViewInterface):
         self.__find_people_controller = find_people_controller
     
     def handle(self, http_request: HttpRequest) -> HttpResponse:
-        person_uuid = http_request.param
+        person_uuid = http_request.param["person_uuid"]
         person_data = self.__find_people_controller.find(person_uuid)
 
         return HttpResponse(status_code=200, body=person_data)
