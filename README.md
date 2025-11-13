@@ -136,3 +136,10 @@ class MockConnection:
 
 
 ## pip3 install pytest-mock
+
+
+## FLASK 
+
+-- pip3 install Flask
+
+-- pip3 install Flask-Cors

@@ -1,0 +1,6 @@
+### Variables
+@apiurl = http://localhost:3000
+
+### Get list of pets
+GET {{apiurl}}/pets
+Content-Type: application/json

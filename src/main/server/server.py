@@ -1,0 +1,13 @@
+from flask import Flask
+from flask_cors import CORS
+from src.models.settings.sqlite.connection import db_connection_handler
+from src.main.routes.pets_routes import pets_routes_bp
+
+db_connection_handler.connection_to_db()
+
+app = Flask(__name__)
+
+CORS(app)
+
+
+app.register_blueprint(pets_routes_bp)
