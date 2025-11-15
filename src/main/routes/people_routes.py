@@ -22,7 +22,7 @@ def create_people():
         return jsonify(http_response.body), http_response.status_code
 
 @people_routes_bp.route("/people/<person_uuid>", methods=["GET"])
-def find_people():
+def find_people(person_uuid):
     try:
         http_request = HttpRequest(param={ "person_uuid": person_uuid })
 
