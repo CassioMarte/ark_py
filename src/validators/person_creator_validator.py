@@ -15,4 +15,4 @@ def person_creator_validator(http_request: HttpRequest)-> None:
         BodyData(**http_request.body) # ** para entrar em body e dividi-lo em first_name= xxxx, last_name=xxx, age: XX   pet_id: xxx
 
     except ValidationError as e:
-        raise HttpUnprocessableEntityError(e.errors()) from e
+        raise HttpUnprocessableEntityError(e.errors()) from e # type: ignore
