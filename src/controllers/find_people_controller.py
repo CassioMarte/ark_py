@@ -1,6 +1,7 @@
 from src.models.repositories.interfaces.people_repository_interface import PeopleRepositoryInterface
 from src.utils.format_return import format_return
 from src.controllers.interfaces.find_people_controller_interface import FindPeopleControllerInterface
+from src.errors.erro_types.http_not_found import HttpNotFoundError
 
 
 class FindPeopleController(FindPeopleControllerInterface):
@@ -16,7 +17,7 @@ class FindPeopleController(FindPeopleControllerInterface):
         person = self.__people_repository.get_person_and_pet(person_uuid)
 
         if not person:
-            raise Exception("Person not found")
+            raise HttpNotFoundError("Pessoa não encontrada.")
     
         return person
 

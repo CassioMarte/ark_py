@@ -2,6 +2,7 @@ import re
 from src.models.repositories.interfaces.people_repository_interface import PeopleRepositoryInterface
 from src.utils.format_return import format_return
 from src.controllers.interfaces.create_people_controller_interface import CreatePeopleControllerInterface
+from src.errors.erro_types.http_bad_request import HttpBadRequestError
 
 
 class CreatePeopleController(CreatePeopleControllerInterface): 
@@ -27,13 +28,13 @@ class CreatePeopleController(CreatePeopleControllerInterface):
         not_valid_str = re.compile(r'[^a-zA-Z]')
         
         if not_valid_str.search(first_name):
-            raise Exception("Nome inválido") 
+            raise HttpBadRequestError("Nome inválido") 
         
         if not_valid_str.search(last_name):
-            raise Exception("Sobrenome inválido") 
+            raise HttpBadRequestError("Sobrenome inválido") 
         
         if not isinstance(age, int) or age <= 0:
-            raise Exception("Idade inválida")
+            raise HttpBadRequestError("Idade inválida")
         
     def __insert_people_in_db(self, first_name:str, last_name:str, age:int , pet_uuid:str)-> None:
         self.__people_repository.create_people(first_name, last_name, age, pet_uuid)

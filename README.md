@@ -143,3 +143,7 @@ class MockConnection:
 -- pip3 install Flask
 
 -- pip3 install Flask-Cors
+
+## validação como zod
+
+-- pip3 install pydantic
